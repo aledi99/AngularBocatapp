@@ -1,0 +1,23 @@
+<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" class="container">
+
+    <h1>Iniciar Sesión</h1>
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Email" [(ngModel)]="user.username" name="user.username" required [email]="true" >
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Password" [(ngModel)]="user.password" type="password" name="user.password" pattern="[0-9]{4,6}" required>
+        </mat-form-field>
+        <div class="example-button-row">
+            <button mat-raised-button color="primary" (click)="doLogin()" value="Login">Iniciar sesión</button>
+            
+        </div>
+        <div class="example-button-row">
+        </div>
+    </form>
+
+</div>
+<ngx-loading [show]="loading" [config]="{animationType: ngxLoadingAnimationTypes.circleSwish, backdropBorderRadius: '4px'}">
+    </ngx-loading>
+    
