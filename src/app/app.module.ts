@@ -42,6 +42,7 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { RouterModule } from '@angular/router';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { JwtModule } from '@auth0/angular-jwt';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -99,7 +100,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       apiKey: 'YOURAPIKEY'
     }),
     PerfectScrollbarModule,
-    NgMaterialMultilevelMenuModule
+    NgMaterialMultilevelMenuModule,
+    MatGridListModule,
+    FlexLayoutModule
   ],
   providers: [
     {
