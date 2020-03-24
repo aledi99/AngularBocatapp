@@ -7,9 +7,9 @@ import { LoginResponse } from '../models/login-response.interface';
 import { SignUpDto } from '../models/signup.dto';
 import { SignUpResponse } from '../models/signup-response.interface';
 
-const urlSignUp = 'http://localhost:9000/user/register';
-const urlLogin = 'http://localhost:9000/oauth/token';
-const url = 'http://localhost:9000/';
+const urlSignUp = 'https://bocatapi.herokuapp.com/user/register';
+const urlLogin = 'https://bocatapi.herokuapp.com/oauth/token';
+const url = 'https://bocatapi.herokuapp.com';
 
 const httpOptions = {
   headers: new HttpHeaders({

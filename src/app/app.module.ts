@@ -44,6 +44,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { AuthService } from './services/auth.service';
+import { EstablecimientoComponent } from './establecimiento/establecimiento.component';
+import { CategoriaComponent } from './categoria/categoria.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -73,7 +75,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     LayoutComponent,
     AuthLayoutComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    EstablecimientoComponent,
+    CategoriaComponent
   ],
   imports: [
     BrowserModule,
