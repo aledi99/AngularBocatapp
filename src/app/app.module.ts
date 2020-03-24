@@ -21,7 +21,11 @@ import {
   MatSidenavModule,
   MatSlideToggleModule,
   MatTabsModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatDialog,
+  MatDialogModule,
+  MatInputModule,
+  MatFormFieldControl
 } from '@angular/material';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
@@ -32,7 +36,7 @@ import { BidiModule } from '@angular/cdk/bidi';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { NgMaterialMultilevelMenuModule } from 'ng-material-multilevel-menu';
 import { NgModule } from '@angular/core';
@@ -43,6 +47,10 @@ import { RouterModule } from '@angular/router';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { JwtModule } from '@auth0/angular-jwt';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { AngularFileUploaderModule } from "angular-file-uploader";
+import { CrearProductoDialogComponent } from './crear-producto-dialog/crear-producto-dialog.component';
+import { ProductoService } from './productoservice/producto.service';
+import { LoginService } from './loginservice/login.service';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -65,12 +73,17 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MenuComponent,
     AdminLayoutComponent,
     LayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+    CrearProductoDialogComponent
+  ],
+  entryComponents: [
+    CrearProductoDialogComponent
   ],
   imports: [
     BrowserModule,
     JwtModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(AppRoutes),
     FormsModule,
     HttpClientModule,
@@ -88,9 +101,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatCheckboxModule,
     MatIconModule,
     MatButtonModule,
+    MatDialogModule,
     MatToolbarModule,
     MatTabsModule,
     MatListModule,
+    MatInputModule,
     MatSlideToggleModule,
     MatSelectModule,
     MatProgressBarModule,
@@ -102,13 +117,16 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     PerfectScrollbarModule,
     NgMaterialMultilevelMenuModule,
     MatGridListModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    AngularFileUploaderModule
   ],
   providers: [
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-    }
+    },
+    ProductoService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })
