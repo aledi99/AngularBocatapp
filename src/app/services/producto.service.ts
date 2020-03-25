@@ -1,9 +1,57 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { ProductoResponse } from '../productomodel/producto';
+import { ProductoDto2 } from '../productomodel/productofull';
+
+const URL_BASE = 'http://localhost:9000/api';
+const URL_BASE2 = 'http://localhost:9000';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductoService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  public getMyProductos(): Observable<ProductoDto2[]>{
+    const requestOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
+      })
+    };
+
+    return this.http.get<ProductoDto2[]>(
+      URL_BASE + '/local/me/productos/',
+      requestOptions);
+  }
+
+  public newProducto(form : FormData): Observable<ProductoDto2> {
+    const requestOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + sessionStorage.getItem('access_token'),
+      })
+    };
+
+    return this.http.post<ProductoDto2>(
+      URL_BASE + '/producto/',
+      form,
+      requestOptions,
+    )
+  }
+
+  public getImage(filename : String): Observable<String> {
+    const requestOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
+      })
+    };
+
+    return this.http.get<String>(
+      URL_BASE2 + '/image/' +  filename,
+      requestOptions
+    )
+  }
 }
