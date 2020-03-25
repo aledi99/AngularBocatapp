@@ -4,13 +4,7 @@
 
     <input type="password" [(ngModel)]="user.password" placeholder="Contraseña" pattern="[0-9]{4,6}" required />
     <input type="password" [(ngModel)]="user.password2" placeholder="Contraseña" pattern="[0-9]{4,6}" required />
-    <mat-form-field>
-        <mat-select [(ngModel)]="user.nombreColegio" #nombreProceso="ngModel" required>
-            <mat-option *ngFor="let colegio of listaColegios" [value]="colegio.nombre">
-            {{colegio.nombre}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
+    
 
     <input type="button" (click)="doSignUp()" value="Registrarse" />
 

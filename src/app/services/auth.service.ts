@@ -7,7 +7,7 @@ import { LoginResponse } from '../models/login-response.interface';
 import { SignUpDto } from '../models/signup.dto';
 import { SignUpResponse } from '../models/signup-response.interface';
 
-const urlSignUp = 'https://bocatapi.herokuapp.com/user/register';
+const urlSignUp = 'https://bocatapi.herokuapp.com/gerente/register';
 const urlLogin = 'https://bocatapi.herokuapp.com/oauth/token';
 const url = 'https://bocatapi.herokuapp.com';
 

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SignUpDto } from '../models/signup.dto';
+import { AuthService } from '../services/auth.service';
+import { EstablecimientoService } from '../services/establecimiento.service';
 
 @Component({
   selector: 'app-registro',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistroComponent implements OnInit {
 
-  constructor() { }
+  user : SignUpDto;
+ 
+  constructor(
+    private servicio : AuthService,
+    public colegioServicio: EstablecimientoService
+  ) { 
+    this.user = new SignUpDto('','','','');
+  }
 
   ngOnInit() {
+  }
+
+
+  doSignUp(){
+    this.servicio.signup(this.user).subscribe(x => {
+      alert('email ' + x.username);
+    });
   }
 
 }

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { NuevaCategoriadto } from '../dto/newCategoriaDto.dto';
+import { Categoria } from '../models/categoria-interface';
 
 const apiURL = 'https://bocatapi.herokuapp.com/api/';
 
@@ -27,10 +29,10 @@ export class CategoriaService {
         );
     }
 
-    public crearCategoria(nuevaCategoriaDto: NuevaCategoriaDto): Observable<Categoria> {
+    public crearCategoria(nuevaCategoriaDto: NuevaCategoriadto): Observable<Categoria> {
         return this.http.post<Categoria>(
           apiURL,
-          nuevoEstablecimientoDto,
+          nuevaCategoriaDto,
           requestOptions
         );
     }
