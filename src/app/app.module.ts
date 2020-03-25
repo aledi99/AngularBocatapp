@@ -52,6 +52,7 @@ import { CrearProductoDialogComponent } from './crear-producto-dialog/crear-prod
 import { ProductoService } from './productoservice/producto.service';
 import { LoginService } from './loginservice/login.service';
 import { BorrarProductoDialogComponent } from './borrar-producto-dialog/borrar-producto-dialog.component';
+import { EstablecimientoService } from './establecimientoservice/establecimiento.service';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -131,7 +132,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
     },
     ProductoService,
-    LoginService
+    LoginService,
+    EstablecimientoService
   ],
   bootstrap: [AppComponent]
 })

@@ -20,4 +20,14 @@ export class HeaderComponent {
       Screenfull.toggle();
     }
   }
+
+  showAdmin() {
+    var rol = window.sessionStorage.getItem('rol');
+
+    if(rol == 'ADMIN') {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

@@ -16,6 +16,7 @@ import { NgModule } from '@angular/core';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { RouterModule } from '@angular/router';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { DashboardEstablecimientoComponent } from './dashboard-establecimiento/dashboard-establecimiento.component';
 
 @NgModule({
   imports: [
@@ -32,6 +33,6 @@ import {MatGridListModule} from '@angular/material/grid-list';
     FlexLayoutModule,
     MatGridListModule
   ],
-  declarations: [DashboardComponent]
+  declarations: [DashboardComponent, DashboardEstablecimientoComponent]
 })
 export class DashboardModule {}

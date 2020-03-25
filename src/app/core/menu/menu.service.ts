@@ -10,8 +10,8 @@ export class MenuService {
     return [
       {
         link: 'http://reactprimer.nyasha.me',
-        label: this.translate.instant('Perfil'),
-        icon: 'perm_identity'
+        label: this.translate.instant('Local'),
+        icon: 'store'
       },
       {
         link: '/dashboard/carta',
