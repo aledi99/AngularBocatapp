@@ -1,25 +1,16 @@
-<mat-toolbar class="main-header" color="primary">
-  <button (click)="toggleSidenav.emit()" mat-icon-button>
-    <mat-icon>menu</mat-icon>
-  </button>
+<mat-toolbar class="main-header">
   <div class="branding">
-    <div class="logo"></div>
+    <div class="logo2"></div>
   </div>
   <div class="search-bar" fxFlex>
-    <form class="search-form" [ngStyle.xs]="{display: 'none'}">
-      <mat-icon>search</mat-icon>
-      <input type="text" placeholder="Search" autofocus="true" />
-    </form>
+    <button mat-button class="textos">Establecimientos</button>
+    <button mat-button class="textos">Usuarios</button>
   </div>
   <button (click)="fullScreenToggle()" mat-icon-button>
-    <mat-icon>fullscreen</mat-icon>
-  </button>
-  <button (click)="toggleNotificationSidenav.emit()" mat-icon-button class="ml-xs overflow-visible">
-    <mat-icon>notifications</mat-icon>
-    <span class="notification-label">5</span>
+    <mat-icon class="blanco">fullscreen</mat-icon>
   </button>
   <button [matMenuTriggerFor]="user" mat-icon-button class="ml-xs">
-    <mat-icon>person</mat-icon>
+    <mat-icon class="blanco">person</mat-icon>
   </button>
   <mat-menu #user="matMenu" x-position="before">
     <button mat-menu-item>
