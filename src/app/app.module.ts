@@ -45,7 +45,7 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { RouterModule } from '@angular/router';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { JwtModule } from '@auth0/angular-jwt';
+import { JwtModule } from "@auth0/angular-jwt";
 import {MatGridListModule} from '@angular/material/grid-list';
 import { AngularFileUploaderModule } from "angular-file-uploader";
 import { CrearProductoDialogComponent } from './crear-producto-dialog/crear-producto-dialog.component';
@@ -121,7 +121,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     NgMaterialMultilevelMenuModule,
     MatGridListModule,
     FlexLayoutModule,
-    AngularFileUploaderModule
+    AngularFileUploaderModule,
+    JwtModule
+
   ],
   providers: [
     {
