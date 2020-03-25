@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 import { AdminLayoutComponent, AuthLayoutComponent } from './core';
 
 export const AppRoutes: Routes = [{
-  path: '',
+  path: 'dashboard',
   component: AdminLayoutComponent,
   children: [{
     path: '',
@@ -13,7 +13,7 @@ export const AppRoutes: Routes = [{
   path: '',
   component: AuthLayoutComponent,
   children: [{
-    path: 'session',
+    path: '',
     loadChildren: './session/session.module#SessionModule'
   }]
 }, {

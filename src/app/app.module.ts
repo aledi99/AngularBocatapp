@@ -51,6 +51,7 @@ import { AngularFileUploaderModule } from "angular-file-uploader";
 import { CrearProductoDialogComponent } from './crear-producto-dialog/crear-producto-dialog.component';
 import { ProductoService } from './productoservice/producto.service';
 import { LoginService } from './loginservice/login.service';
+import { BorrarProductoDialogComponent } from './borrar-producto-dialog/borrar-producto-dialog.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -74,10 +75,12 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AdminLayoutComponent,
     LayoutComponent,
     AuthLayoutComponent,
-    CrearProductoDialogComponent
+    CrearProductoDialogComponent,
+    BorrarProductoDialogComponent
   ],
   entryComponents: [
-    CrearProductoDialogComponent
+    CrearProductoDialogComponent,
+    BorrarProductoDialogComponent
   ],
   imports: [
     BrowserModule,

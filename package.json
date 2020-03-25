@@ -11,6 +11,9 @@
     "e2e": "ng e2e",
     "now-build": "ng build --prod --output-path dist"
   },
+  "directories": {
+    "output": "release/"
+  },
   "engines": {
     "node": "10.x"
   },
