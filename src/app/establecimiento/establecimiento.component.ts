@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { EstablecimientoService } from '../services/establecimiento.service';
+import { Establecimiento } from '../models/establecimiento-interface';
 
 @Component({
   selector: 'app-establecimiento',
@@ -18,22 +19,22 @@ export class EstablecimientoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getEstablecimientos();
+    //this.getEstablecimientos();
   }
 
-  getEstablecimientos(){
+  /*getEstablecimientos(){
     this.establecimientoService.getListaEstablecimientos().subscribe(resp =>{
       this.establecimiento = resp;
     });
   }
 
   deleteEstablecimiento(establecimiento: Establecimiento){
-    this.colegioService.deleteColegio(colegio.id).subscribe( resp => {
+    this.establecimientoService.deleteEstablecimiento(establecimiento.id).subscribe( resp => {
       alert("Establecimiento eliminado con éxito");
     });
   }
 
-  openCrearColegioDialog(){
+  /*openCrearColegioDialog(){
     const dialogRef = this.dialog.open(CrearEstablecimientoComponent);
     
     dialogRef.afterClosed().subscribe(resp => {
@@ -42,6 +43,6 @@ export class EstablecimientoComponent implements OnInit {
         });
             
     });
-  }
+  }*/
 
 }

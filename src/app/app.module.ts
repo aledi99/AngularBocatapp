@@ -86,8 +86,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     LoginComponent,
     RegistroComponent,
     EstablecimientoComponent,
-    CategoriaComponent,
-    CrearProductoDialogComponent
+    CategoriaComponent
+    
   ],
   entryComponents: [
     CrearProductoDialogComponent

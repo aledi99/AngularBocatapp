@@ -10,20 +10,20 @@ export class MenuService {
     return [
       {
         link: '/',
-        label: this.translate.instant('HOME'),
-        icon: 'explore'
+        label: this.translate.instant('Perfil'),
+        icon: 'perm_identity'
       },
       {
         link: 'http://reactprimer.nyasha.me',
-        label: this.translate.instant('React Version'),
+        label: this.translate.instant('Carta'),
         externalRedirect: true,
-        icon: 'bookmark'
+        icon: 'local_library'
       },
       {
         link: 'http://primer.nyasha.me/docs',
-        label: this.translate.instant('DOCS'),
+        label: this.translate.instant('Estadísticas'),
         externalRedirect: true,
-        icon: 'local_library'
+        icon: 'trending_up'
       }
     ];
   }
