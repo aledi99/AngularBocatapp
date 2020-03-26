@@ -4,7 +4,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html'
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
   @Output()
@@ -17,6 +18,16 @@ export class HeaderComponent {
   fullScreenToggle(): void {
     if (Screenfull.isEnabled) {
       Screenfull.toggle();
+    }
+  }
+
+  showAdmin() {
+    var rol = window.sessionStorage.getItem('rol');
+
+    if(rol == 'ADMIN') {
+      return true;
+    } else {
+      return false;
     }
   }
 }

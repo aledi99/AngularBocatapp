@@ -6,7 +6,7 @@ import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-menu',
-  template: `<ng-material-multilevel-menu [configuration]='config' [items]='menuItems' class='navigation'></ng-material-multilevel-menu>`,
+  template: `<ng-material-multilevel-menu *ngIf="showGerente()" [configuration]='config' [items]='menuItems' class='navigation'></ng-material-multilevel-menu>`,
   providers: [MenuService]
 })
 export class MenuComponent implements OnChanges, OnInit, OnDestroy {
@@ -32,6 +32,16 @@ export class MenuComponent implements OnChanges, OnInit, OnDestroy {
 
   ngOnChanges(changes: SimpleChanges) {
     this.config = {...this.config, rtlLayout: this.direction === 'rtl' ? true : false};
+  }
+
+  showGerente() {
+    var rol = window.sessionStorage.getItem('rol');
+
+    if(rol == 'GERENTE') {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   ngOnInit() {

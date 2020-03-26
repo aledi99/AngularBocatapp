@@ -36,13 +36,33 @@ export class SigninComponent implements OnInit {
     this.loginService.login(this.form.value.username, this.form.value.password)
       .then(
         resp => {
-          window.sessionStorage.setItem('access_token', resp.access_token);
-          this.loadingSubject.next(false);
-          
-          this.router.navigate(['/']);
-         
-          
+          this.loginService.getRole(this.form.value.username).subscribe(resp2 => {
+              if(JSON.parse(JSON.stringify(resp2)) == "ADMIN" || JSON.parse(JSON.stringify(resp2)) == "GERENTE") {
+                window.sessionStorage.setItem('rol', JSON.parse(JSON.stringify(resp2))); 
+                window.sessionStorage.setItem('access_token', resp.access_token);
+                  this.loadingSubject.next(false);
+
+                  this.router.navigate(['/dashboard']);
+              } else {
+                alert("No tienes el rol de gerente o admin para poder iniciar sesión.")
+              }
+          })
         })
    
+  }
+
+  login2() {
+    this.loadingSubject.next(true);
+    this.loginService.login(this.form.value.username, this.form.value.password)
+      .then(
+        resp => {
+          window.sessionStorage.setItem('access_token', resp.access_token);
+          this.loadingSubject.next(false);
+
+          this.router.navigate(['/dashboard']);
+
+
+        })
+
   }
 }

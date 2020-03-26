@@ -41,7 +41,19 @@ export class ProductoService {
     )
   }
 
-  public getImage(filename : String): Observable<String> {
+  public getImage(filename : String) {
+    const requestOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
+      })
+    };
+
+    return this.http.get(
+      URL_BASE2 + '/downloadFile/' +  filename
+    )
+  }
+
+  public deleteProducto(id : number) {
     const requestOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -49,8 +61,8 @@ export class ProductoService {
       })
     };
 
-    return this.http.get<String>(
-      URL_BASE2 + '/image/' +  filename,
+    return this.http.delete(
+      URL_BASE + '/producto/' + id,
       requestOptions
     )
   }

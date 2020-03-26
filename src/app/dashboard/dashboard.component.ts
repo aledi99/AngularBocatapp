@@ -4,6 +4,7 @@ import { ProductoResponse } from '../productomodel/producto';
 import { MatDialog } from '@angular/material';
 import { CrearProductoDialogComponent } from '../crear-producto-dialog/crear-producto-dialog.component';
 import { ProductoDto2 } from '../productomodel/productofull';
+import { BorrarProductoDialogComponent } from '../borrar-producto-dialog/borrar-producto-dialog.component';
 
 export interface Tile {
   color: string;
@@ -44,13 +45,29 @@ export class DashboardComponent implements OnInit {
   }
   
   getImage(filename : String) {
-    var url = null;
+    var retrieveResonse = null;
+    var base64data = null;
+    var retrievedImage = null;
+
     this.productoService.getImage(filename).subscribe(resp => {
-      url = resp;
+      retrieveResonse = resp;
+      base64data = retrieveResonse.picByte;
+      retrievedImage = 'data:image/png;base64,' + base64data;
     }).unsubscribe();
 
-    return url;
+    return retrievedImage;
 
+  }
+
+  openDialog2(id : number): void {
+    const dialogRef = this.dialog.open(BorrarProductoDialogComponent, {
+      data: { id2: id},
+      width: '250px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
 

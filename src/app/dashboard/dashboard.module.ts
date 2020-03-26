@@ -23,6 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { UsuarioComponent } from '../usuario/usuario.component';
 import { EstablecimientoComponent } from '../establecimiento/establecimiento.component';
+import { DashboardEstablecimientoComponent } from './dashboard-establecimiento/dashboard-establecimiento.component';
+import { DashboardPerfilLocalComponent } from './dashboard-perfil-local/dashboard-perfil-local.component';
 
 @NgModule({
   imports: [
@@ -45,6 +47,6 @@ import { EstablecimientoComponent } from '../establecimiento/establecimiento.com
     MatCheckboxModule,
     MatInputModule 
   ],
-  declarations: [DashboardComponent, UsuarioComponent, EstablecimientoComponent]
+  declarations: [DashboardComponent, UsuarioComponent, EstablecimientoComponent,DashboardEstablecimientoComponent, DashboardPerfilLocalComponent]
 })
 export class DashboardModule {}

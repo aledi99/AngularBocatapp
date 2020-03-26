@@ -27,7 +27,7 @@ export const SessionRoutes: Routes = [
         component: LockscreenComponent
       },
       {
-        path: 'signin',
+        path: '',
         component: SigninComponent
       },
       {

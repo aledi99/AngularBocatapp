@@ -51,4 +51,20 @@ export class LoginService {
 
       return this.loadAccessToken(true, null, username, password).toPromise();
     }
+
+    getRole(username : String) : Observable<String> {
+      const headers = new HttpHeaders({
+        'Content-Type': 'text/plain; charset=utf-8'
+      })
+    
+        
+
+
+      return this.http.get<String>('http://localhost:9000/role/' + username,
+      {
+        headers, responseType: 'text' as 'json'
+      }
+      )
+    }
+
 }

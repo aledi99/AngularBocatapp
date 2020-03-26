@@ -9,12 +9,12 @@ export class MenuService {
   getAll() {
     return [
       {
-        link: '/',
-        label: this.translate.instant('Perfil'),
-        icon: 'perm_identity'
+        link: '/dashboard/me/establecimiento',
+        label: this.translate.instant('Local'),
+        icon: 'store'
       },
       {
-        link: 'http://reactprimer.nyasha.me',
+        link: '/dashboard/carta',
         label: this.translate.instant('Carta'),
         externalRedirect: true,
         icon: 'local_library'

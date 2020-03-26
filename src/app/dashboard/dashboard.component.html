@@ -2,7 +2,7 @@
     <mat-card fxFlex="1 1 calc(33.3%-5px)" *ngFor="let producto of listaProductos" fxFlex.lt-lg="1 1 calc(50%-5px)" fxFlex.lt-sm="1 1 calc(100%-5px)">
         <div fxLayout="row" >
             <div fxLayout="column" fxLayoutAlign="start start">
-                <img *ngIf="producto.imagen.nombreFichero != null" [src]='getImage(producto.imagen.nombreFichero)' class="imgPeli" fxHide.sm="true"  fxHide.xs="true">
+                <img *ngIf="producto.imagen != null" [src]='getImage(producto.imagen.nombreFichero)' class="imgPeli" fxHide.sm="true"  fxHide.xs="true">
          
             </div>
             <div fxLayout="column" class="manage" fxLayoutAlign="start start">
@@ -21,7 +21,7 @@
                 </div>
                 <div fxLayout="row" class="margen" fxLayoutAlign="start start">
                         <button mat-raised-button color="primary" class="botton">Editar..</button>
-                        <button mat-raised-button color="warn" class="botton2">Eliminar..</button>
+                        <button mat-raised-button color="warn" (click)="openDialog2(producto.id)" class="botton2">Eliminar..</button>
                 </div>
          
             </div>
