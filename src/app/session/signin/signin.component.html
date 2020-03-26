@@ -25,7 +25,7 @@
               <div class="pb-1">
                 <mat-checkbox>Recordar correo electrónico</mat-checkbox>
               </div>
-              <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Iniciar sesión</button>
+              <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid" (click)="login()">Iniciar sesión</button>
             </div>
             <div class="pt-1 pb-1 text-xs-center">
               <a [routerLink]="['/session/forgot']">¿Olvidaste la contraseña?</a>&nbsp;&nbsp;&nbsp;&nbsp;

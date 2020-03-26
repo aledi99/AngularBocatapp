@@ -51,6 +51,9 @@ import { AngularFileUploaderModule } from "angular-file-uploader";
 import { CrearProductoDialogComponent } from './crear-producto-dialog/crear-producto-dialog.component';
 import { ProductoService } from './productoservice/producto.service';
 import { LoginService } from './loginservice/login.service';
+import { UsuariosService } from './services/usuarios.service';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { EstablecimientoService } from './services/establecimiento.service';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -74,7 +77,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AdminLayoutComponent,
     LayoutComponent,
     AuthLayoutComponent,
-    CrearProductoDialogComponent
+    CrearProductoDialogComponent,
+    
   ],
   entryComponents: [
     CrearProductoDialogComponent
@@ -119,7 +123,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatGridListModule,
     FlexLayoutModule,
     AngularFileUploaderModule,
-    JwtModule
+    JwtModule,
+    
 
   ],
   providers: [
@@ -128,7 +133,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
     },
     ProductoService,
-    LoginService
+    LoginService,
+    UsuariosService,
+    EstablecimientoService
+    
+
   ],
   bootstrap: [AppComponent]
 })

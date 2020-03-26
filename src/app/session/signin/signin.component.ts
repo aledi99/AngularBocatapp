@@ -39,7 +39,7 @@ export class SigninComponent implements OnInit {
           window.sessionStorage.setItem('access_token', resp.access_token);
           this.loadingSubject.next(false);
           
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/']);
          
           
         })
