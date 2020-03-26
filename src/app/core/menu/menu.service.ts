@@ -9,7 +9,7 @@ export class MenuService {
   getAll() {
     return [
       {
-        link: 'http://reactprimer.nyasha.me',
+        link: '/dashboard/me/establecimiento',
         label: this.translate.instant('Local'),
         icon: 'store'
       },

@@ -17,6 +17,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { RouterModule } from '@angular/router';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { DashboardEstablecimientoComponent } from './dashboard-establecimiento/dashboard-establecimiento.component';
+import { DashboardPerfilLocalComponent } from './dashboard-perfil-local/dashboard-perfil-local.component';
 
 @NgModule({
   imports: [
@@ -33,6 +34,6 @@ import { DashboardEstablecimientoComponent } from './dashboard-establecimiento/d
     FlexLayoutModule,
     MatGridListModule
   ],
-  declarations: [DashboardComponent, DashboardEstablecimientoComponent]
+  declarations: [DashboardComponent, DashboardEstablecimientoComponent, DashboardPerfilLocalComponent]
 })
 export class DashboardModule {}

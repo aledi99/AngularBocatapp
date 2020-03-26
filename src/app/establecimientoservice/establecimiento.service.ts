@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { EstablecimientoDto2 } from '../establecimientomodel/establecimientodto';
+import { EditEstablecimientoDto } from '../establecimientomodel/establecimiento.editdto';
 
 const URL_BASE = 'http://localhost:9000/api';
 const URL_BASE2 = 'http://localhost:9000';
@@ -26,7 +27,61 @@ export class EstablecimientoService {
       requestOptions);
   }
 
+  public getEstablecimiento(id : number): Observable<EstablecimientoDto2> {
+    const requestOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
+      })
+    };
+
+    return this.http.get<EstablecimientoDto2>(
+      URL_BASE + '/local/' + id,
+      requestOptions
+    )
+  }
+
+  public editEstablecimiento(id : number, establecimiento : EditEstablecimientoDto) {
+    const requestOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
+      })
+    };
+
+    return this.http.put(
+      URL_BASE + '/local/' + id,
+      establecimiento,
+      requestOptions
+    )
+  }
+
+  public getMyLocal() : Observable<EstablecimientoDto2> {
+    const requestOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
+      })
+    };
+
+    return this.http.get<EstablecimientoDto2>(
+      URL_BASE + '/local/me/',
+      requestOptions);
+  }
+
   public getImage(filename : String) {
+    const requestOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
+      })
+    };
+
+    return this.http.get(
+      URL_BASE2 + '/downloadFile/' +  filename
+    )
+  }
+
+  public getImageLocal(filename : String) {
     const requestOptions = {
       headers: new HttpHeaders({
         'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')

@@ -1,30 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { EstablecimientoService } from 'src/app/establecimientoservice/establecimiento.service';
 import { EstablecimientoDto2 } from 'src/app/establecimientomodel/establecimientodto';
-import { MatDialog } from '@angular/material';
 import { EditarEstablecimientoDialogComponent } from 'src/app/editar-establecimiento-dialog/editar-establecimiento-dialog.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
-  selector: 'app-dashboard-establecimiento',
-  templateUrl: './dashboard-establecimiento.component.html',
-  styleUrls: ['./dashboard-establecimiento.component.scss']
+  selector: 'app-dashboard-perfil-local',
+  templateUrl: './dashboard-perfil-local.component.html',
+  styleUrls: ['./dashboard-perfil-local.component.scss']
 })
-export class DashboardEstablecimientoComponent implements OnInit {
-  listaEstablecimientos : EstablecimientoDto2[];
+export class DashboardPerfilLocalComponent implements OnInit {
   establecimiento : EstablecimientoDto2;
   errorMess = null;
-  
 
   constructor(private establecimientoService : EstablecimientoService,  public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.loadLocals();
+    this.loadMyLocal();
   }
 
-  loadLocals() {
+  loadMyLocal() {
     console.log("entra");
-    this.establecimientoService.getEstablecimientos().subscribe(resp => {
-      this.listaEstablecimientos = resp;
+    this.establecimientoService.getMyLocal().subscribe(resp => {
+      this.establecimiento = resp;
       console.log(resp);
       this.errorMess=null;
     }, error => {
@@ -38,7 +36,7 @@ export class DashboardEstablecimientoComponent implements OnInit {
     var base64data = null;
     var retrievedImage = null;
 
-    this.establecimientoService.getImage(filename).subscribe(resp => {
+    this.establecimientoService.getImageLocal(filename).subscribe(resp => {
       retrieveResonse = resp;
       base64data = retrieveResonse.picByte;
       retrievedImage = 'data:image/png;base64,' + base64data;
@@ -58,5 +56,6 @@ export class DashboardEstablecimientoComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
+  
 
 }
