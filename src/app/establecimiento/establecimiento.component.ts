@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { EstablecimientoService } from '../services/establecimiento.service';
 import { Router } from '@angular/router';
 import { VirtualTimeScheduler } from 'rxjs';
+import { EstablecimientoService } from '../establecimientoservice/establecimiento.service';
+import { EstablecimientoResponse } from '../models/establecimiento.interface';
 
 @Component({
   selector: 'app-establecimiento',
@@ -73,10 +74,12 @@ export class EstablecimientoComponent implements OnInit {
     console.log(body.get("longitud").valueOf());
 
 ;
+    
 
     this.establecimientoService.añadirEstablecimiento(body).subscribe(resp => {
+      if(resp)
       console.log(resp);
-      this.router.navigate(['/']);
+      location.reload();
     });
   }
 

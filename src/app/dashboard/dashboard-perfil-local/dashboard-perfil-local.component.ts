@@ -3,6 +3,10 @@ import { EstablecimientoService } from 'src/app/establecimientoservice/estableci
 import { EstablecimientoDto2 } from 'src/app/establecimientomodel/establecimientodto';
 import { EditarEstablecimientoDialogComponent } from 'src/app/editar-establecimiento-dialog/editar-establecimiento-dialog.component';
 import { MatDialog } from '@angular/material';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CategoriaService } from 'src/app/categoriaservice/categoria.service';
+import { CategoriaDto2 } from 'src/app/establecimientomodel/categoriadto2';
 
 @Component({
   selector: 'app-dashboard-perfil-local',
@@ -12,11 +16,40 @@ import { MatDialog } from '@angular/material';
 export class DashboardPerfilLocalComponent implements OnInit {
   establecimiento : EstablecimientoDto2;
   errorMess = null;
+  form : FormGroup
+  file: File
+  nombre: string;
+  descripcion:string;
+  presupuesto:number;
+  horaApertura:string;
+  horaCierre:string;
+  latitud:string;
+  longitud:string;
+  listaNombreCategoria: CategoriaDto2[];
+  nombreCategoria:CategoriaDto2;
 
-  constructor(private establecimientoService : EstablecimientoService,  public dialog: MatDialog) { }
+
+  constructor(private establecimientoService : EstablecimientoService,  public dialog: MatDialog, private formBuilder: FormBuilder, private router: Router, private categoriaService: CategoriaService) {
+
+    this.form = this.formBuilder.group({
+      imagen: [null],
+      nombre: [''],
+      descripcion: [''],
+      presupuesto: [null],
+      horaApertura: [''],
+      horaCierre: [''],
+      latitud: [''],
+      longitud: [''],
+      nombreCategoria: ['']
+      
+    })
+    this.establecimiento == null;
+   }
+
 
   ngOnInit() {
     this.loadMyLocal();
+    this.getCategorias();
   }
 
   loadMyLocal() {
@@ -55,6 +88,55 @@ export class DashboardPerfilLocalComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
+  }
+
+  uploadFile(event) {
+
+    let reader = new FileReader();
+
+    if(event.target.files && event.target.files.length > 0) {
+
+      this.file = event.target.files[0];
+    }
+  }
+
+  submitForm() {
+    var body = new FormData();
+    body.append('file', this.file);
+    body.append('nombre', this.form.get('nombre').value);
+    body.append('descripcion', this.form.get('descripcion').value);
+    body.append('presupuesto', this.form.get('presupuesto').value);
+    body.append('horaApertura', this.form.get('horaApertura').value);
+    body.append('horaCierre', this.form.get('horaCierre').value);
+    body.append('latitud', this.form.get('latitud').value);
+    body.append('longitud', this.form.get('longitud').value);
+    body.append('nombreCategoria', this.form.get('nombreCategoria').value);
+    //body.append('gerenteId', this.form.get('gerenteId').value);
+
+    console.log(body.get("file").valueOf());
+    console.log(body.get("nombre").valueOf());
+    console.log(body.get("descripcion").valueOf());
+    console.log(body.get("presupuesto").valueOf());
+    console.log(body.get("horaApertura").valueOf());
+    console.log(body.get("horaCierre").valueOf());
+    console.log(body.get("latitud").valueOf());
+    console.log(body.get("longitud").valueOf());
+
+;
+    
+
+    this.establecimientoService.añadirEstablecimiento(body).subscribe(resp => {
+      if(resp)
+      console.log(resp);
+      this.router.navigate(['/dashboard/me/establecimiento']);
+      location.reload();
+    });
+  }
+
+  getCategorias() {
+    this.categoriaService.getCategoriaNames().subscribe(resp => {
+      this.listaNombreCategoria = resp;
+    })
   }
   
 

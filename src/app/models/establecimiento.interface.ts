@@ -14,7 +14,7 @@ export class EstablecimientoResponse{
     //abierto:boolean;
     horaApertura:string;
     horaCierre:string;
-    //gerente: Gerente;
+    gerente: Gerente;
     //listProductos: ProductoDto2;
     //localizacion: Ubicacion;
     //categoria: Categoria;

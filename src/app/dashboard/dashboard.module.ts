@@ -8,7 +8,9 @@ import {
   MatProgressBarModule,
   MatFormFieldModule,
   MatCheckboxModule,
-  MatInputModule 
+  MatInputModule,
+  MatOptionModule ,
+  MatSelectModule
 } from '@angular/material';
 
 import { ChartsModule } from 'ng2-charts';
@@ -45,7 +47,9 @@ import { DashboardPerfilLocalComponent } from './dashboard-perfil-local/dashboar
     ReactiveFormsModule,
     MatFormFieldModule,
     MatCheckboxModule,
-    MatInputModule 
+    MatInputModule,
+    MatOptionModule,
+    MatSelectModule
   ],
   declarations: [DashboardComponent, UsuarioComponent, EstablecimientoComponent,DashboardEstablecimientoComponent, DashboardPerfilLocalComponent]
 })

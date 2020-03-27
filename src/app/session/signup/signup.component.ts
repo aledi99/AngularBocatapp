@@ -72,7 +72,7 @@ export class SignupComponent implements OnInit {
 
     this.registroService.Registro(body).subscribe(resp => {
       console.log(resp);
-      this.router.navigate(['/session/signin']);
+      this.router.navigate(['/']);
     });
   }
 
